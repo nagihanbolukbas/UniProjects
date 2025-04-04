@@ -1,19 +1,25 @@
-🥘 Simple Recipe App / Basit Yemek Tarifi Uygulaması 🇬🇧 English This is a basic recipe application developed using the Python Tkinter library.
+🇬🇧 English Version
+Simple Recipe App
 
-📚 Created as a final project for a university course
+This is a basic recipe application developed using the Python Tkinter library. The app includes features like user login, password change, adding and removing recipes, and allowing users to leave comments on recipes.
 
-🛠️ Built with simple and clean code
+📚 Created as a final project for a university course.
 
-🚀 Open to improvements and feature extensions
+🛠️ Built with simple and clean Python code using Tkinter.
+
+🚀 Open to improvements and feature extensions, such as adding more functionality or enhancing the user interface.
 
 Feel free to explore, use, or contribute!
 
-🇹🇷 Türkçe Python Tkinter kütüphanesi kullanılarak geliştirilmiş basit bir yemek tarifi uygulamasıdır.
+🇹🇷 Türkçe Versiyon
+Basit Yemek Tarifi Uygulaması
 
-📚 Üniversite dersi için hazırlanmış bir final proje ödevidir
+Bu, Python Tkinter kütüphanesi kullanılarak geliştirilmiş basit bir yemek tarifi uygulamasıdır. Uygulama, kullanıcı adı girişi, şifre değiştirme, tarif ekleme ve çıkarma, kullanıcıların tariflere yorum yapabilmesi gibi özelliklere sahiptir.
 
-🛠️ Temel ve sade bir kod yapısına sahiptir
+📚 Üniversite dersi için hazırlanmış bir final proje ödevidir.
 
-🚀 Geliştirmeye ve yeni özellikler eklemeye açıktır
+🛠️ Tkinter kullanılarak sade ve temiz bir Python kod yapısına sahiptir.
 
-İnceleyebilir, kullanabilir veya katkıda bulunabilir.
+🚀 Geliştirmeye ve yeni özellikler eklemeye açıktır. Yeni fonksiyonlar eklemek veya kullanıcı arayüzünü geliştirmek mümkündür.
+
+İnceleyebilir, kullanabilir veya katkıda bulunabilirsiniz!
