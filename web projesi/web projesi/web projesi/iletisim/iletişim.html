@@ -1,0 +1,282 @@
+<html>
+
+<head>
+    <title>İletişim</title>
+    <style>
+        img.logo {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+
+        }
+
+        a {
+            text-decoration: none;
+            /* Alt çizgiyi kaldırır */
+        }
+
+        .contact-container {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .şekil {
+            font-family: Arial, sans-serif;
+            background: #E3F2FD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            background: white;
+            padding: 2rem;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 1rem;
+            text-align: left;
+            color: #555;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin-top: 0.3rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.7rem;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .MenuBarHorizontal {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .MenuBarHorizontal>a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #008080;
+            /* Menünün arka plan rengi */
+            border-radius: 5px;
+        }
+
+        .MenuBarHorizontal>a:hover {
+            background-color: #006666;
+            /* Hover efekti */
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #c2e2dd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .dropdown-content ul li {
+            position: relative;
+            padding: 8px 10px;
+        }
+
+        .dropdown-content ul li:hover {
+            background-color: #ddd;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            /* Yan tarafa açılacak */
+            top: 0;
+            background-color: #c2e2dd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            z-index: 1;
+        }
+
+        .dropdown-content ul li:hover .sub-menu {
+            display: block;
+        }
+
+        #clock-container {
+            margin: 20px;
+            font-size: 20px;
+        }
+
+        .clock {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #c2e2dd;
+            ;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sosyal a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .sosyal img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .sosyal img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+       <!-- Menü -->
+       <table border="0" bgcolor="#c2e2dd" width="100%" height="70">
+        <tr align="center">
+            <td width="120" height="100" rowspan="3" align="center">
+                <a href="../Anasayfa/anasayfa.html"><img src="web.jpg" class="logo"></a>
+            </td>
+            <td colspan="2">
+                <div class="dropdown">
+                    <a href="#" class="MenuBarItemSubmenu"><b>ÜLKELER</a></b>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>
+                                <b>Fransa</b>
+                                <ul class="sub-menu">
+                                    <li><a href="../fransa_yerler/fransayerler.html"><b>Yerler</a></li></b>
+                                    <li><a href="../fransa_yemekler/fransayemekler.html"><b>Yemekler</a></li></b>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>İtalya</b>
+                                <ul class="sub-menu">
+                                    <li><a href="../italya_yerler/italya_yerler.html"><b>Yerler</a></li></b>
+                                    <li><a href="../italya_yemek/italya_yemek.html"><b>Yemekler</a></li></b>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>Japonya</b>
+                                <ul class="sub-menu">
+                                    <li><a href="../japonya_yerler/japonya_yerler.html.html"><b>Yerler</a></li></b>
+                                    <li><a href="../japonya_yemek/japonya_yemek.html.html"><b>Yemekler</a></li></b>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td colspan="2">
+                <a href="../hakkimizda/hakkimizda.html" class="MenuBarItemSubmenu"><b>HAKKIMIZDA</a></b>
+            </td>
+            <td colspan="2">
+                <a href="../iletisim/iletişim.html" class="MenuBarItemSubmenu"><b>İLETİŞİM</a></b>
+            </td>
+        </tr>
+    </table>
+    <div class="şekil">
+        <div class="contact-container">
+            <h1>Bize burdan ulaşabilirsiniz</h1>
+            <form action="#">
+                <label for="name">Adınız</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-posta</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h4>TÜM HAKLARI SAKLIDIR</h4>
+        <div class="sosyal" align="right">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="face.png" alt="Facebook" />
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="x.png" alt="X" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="insta.png" alt="Instagram" />
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="yt.png" alt="Youtube" />
+            </a>
+        </div>
+    </footer>>
+</body>
+
+</html>
