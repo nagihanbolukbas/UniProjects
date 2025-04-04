@@ -16,4 +16,4 @@ Feel free to explore, use, or contribute!
 
 🚀 Geliştirmeye ve yeni özellikler eklemeye açıktır
 
-İnceleyebilir, kullanabilir veya katkıda bulunabil
+İnceleyebilir, kullanabilir veya katkıda bulunabilir.
