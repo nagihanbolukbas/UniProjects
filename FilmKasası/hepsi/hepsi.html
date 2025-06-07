@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bütün Filmler - FilmKasası</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #26292e, #af90b6);
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 40px;
+      background-color: #26292e;
+    }
+
+    .logo {
+      max-height: 70px;
+      width: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #ff3c78;
+      font-size: 2.2rem;
+    }
+
+    .controls {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .controls input,
+    .controls select {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .controls input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .film-count {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #eee;
+    }
+
+    .film-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 30px;
+      padding: 0 40px 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .film-card {
+      background-color: #1e1e2e;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .film-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .film-card img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+    }
+
+    .film-info {
+      padding: 15px;
+    }
+
+    .film-info h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .film-info p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .film-info .rating {
+      color: gold;
+      font-size: 0.95rem;
+    }
+
+    .film-info a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      background-color: #ff3c78;
+      color: white;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .film-info a:hover {
+      background-color: #ff6398;
+    }
+
+    .film-info button {
+      margin: 4px 5px 0 0;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .film-info button:first-of-type {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background-color: #3e3e50;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .film-info button:first-of-type:hover {
+      background-color: #ff3c78;
+    }
+    .film-card.watched {
+  border: 3px solid #4caf50; /* Yeşil çerçeve */
+}
+
+    .film-info button:last-of-type {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background-color: #3e3e50;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .film-info button:last-of-type:hover {
+      background-color: #ff3c78;
+    }
+
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #12121c;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .categories a button {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid #fff;
+      padding: 12px 18px;
+      color: #fff;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .categories a button:hover {
+      background-color: #a81f48;
+      transform: translateY(-5px);
+    }
+    .header-right {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.login-btn {
+  background-color: #ff3c78;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #ff6398;
+}
+
+.dropdown {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  background-color: #2c2f3f;
+  border-radius: 10px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.dropdown button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-bottom: 1px solid #444;
+  transition: background 0.2s;
+}
+
+.dropdown button:hover {
+  background-color: #444;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="FilmKasası Logo" class="logo" />
+  </header>
+
+  <div class="header-right">
+    <button class="login-btn" id="loginBtn" onclick="toggleMenu()">👤 Giriş Yap</button>
+  
+    <div class="dropdown" id="userMenu" style="display: none;">
+      <!-- Giriş yapmadan önce görünen -->
+      <a href="giriş.html" id="loginLink"><button>👤 Giriş Yap</button></a>
+      <a href="giriş.html" id="registerLink"><button>📝 Kayıt Ol</button></a>
+  
+      <!-- Giriş yaptıktan sonra görünen -->
+      <a href="favorilerim.html" id="favoritesLink" style="display: none;">
+        <button onclick="favoriteMovies()">👀 İzlemek İstediklerim</button>
+      </a>
+      <button id="logoutBtn" onclick="logout()" style="display: none;">🚪 Çıkış</button>
+    </div>
+  </div>
+
+  <div class="categories">
+    <a href="../anasayfa/anasayfa.html"><button>🏠 Ana Sayfa</button></a>
+    <a href="../dramm/dram.html"><button onclick="filterByGenre('dram')">🎭 Dram</button></a>
+    <a href="../romantik/romantik.html"><button onclick="filterByGenre('romantik')">💘 Romantik</button></a>
+    <a href="../komedi/komedi.html"><button onclick="filterByGenre('komedi')">😂 Komedi</button></a>
+    <a href="../korku/korku.html"><button>👻 Korku</button></a>
+    <a href="../bilim kurgu/bilimkurgu.html"><button onclick="filterByGenre('bilim-kurgu')">🌌 Bilim Kurgu</button></a>
+    <a href="../aksiyon/aksiyon.html"><button onclick="filterByGenre('aksiyon')">💥 Aksiyon</button></a>
+    <a href="../hepsi/hepsi.html"><button onclick="filterByGenre('hepsi')">🎬 Hepsi</button></a>
+  </div>
+
+
+  <h1>🎬 Hepsi Filmler</h1>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Film ara...">
+    <select id="sortSelect">
+      <option value="">Sırala</option>
+      <option value="asc">Yıla Göre Artan</option>
+      <option value="desc">Yıla Göre Azalan</option>
+    </select>
+  </div>
+
+  <div class="film-count" id="filmCount"></div>
+  <div class="film-grid" id="filmGrid"></div>
+
+  <footer>
+    <p>&copy; 2025 FilmKasası. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    const films = [
+  { title: "7.Koğuştaki Mucize", year: 2019, image: "7.koğuş.jpg", rating: 4, src: "7.koğuş.html" },
+  { title: "Five Feet Apart", year: 2019, image: "fivefeetapart.jpg", rating: 5, src:"fivefeetapart.html" },
+  { title: "Annem", year: 2019, image: "annem.jpg", rating: 3.8, src:"annem.html" },
+  { title: "Ayla", year: 2017, image: "ayla.jpg", rating: 4,src:"ayla.html" },
+  { title: "Benjamin Button'ın Tuhaf Hikayesi", year: 2008, image: "benjamin.jpg", rating: 4,src:"benjamin.html" },
+  { title: "Delibal", year: 2015, image: "delibal.jpg", rating: 4 ,src:"delibal.html"},
+  { title: "Gözyaşı Ustası", year: 2024, image: "gözyaşı.jpg", rating: 4 ,src:"gözyaşı.html"},
+  { title: "Purple Hearts", year: 2022, image: "kalplerimizbir.jpg", rating: 4,src:"kalplerimizbir.html" },
+  { title: "It Ends With Us", year: 2024, image: "bizimlebaşladı.jpg", rating: 4,src:"bizimlebaşladı.html" },
+  { title: "Babam ve Oğlum", year: 2005, image: "babamveoğlum.jpg", rating: 4,src:"babamveoğlum.html" },
+  { title: "The Dad Quest", year: 2025, image: "babaarayışı.jpg", rating: 4 ,src:"babaarayışı.html"},
+//dram burada bitiyor
+  { title: "2012", year: 2009, image : "2012.jpeg", rating: 4, src:"2012.html" },
+  { title: "Bird Box", year: 2018, image: "bırdbox.jpeg", rating: 5, src:"birdbox.html" },
+  { title: "Labirent", year: 2014, image: "labirent.jpeg", rating: 3.8 ,src:"labirent.html"},
+  { title: "Buz Kıyameti", year: 2020, image: "buzkıyameti.jpeg", rating: 4 , src:"buzkıyameti.html"},
+  { title: "Fırtına Anı", year: 2018, image: "fırtınaanı.jpeg", rating: 4, src:"fırtınaanı.html" },
+  { title: "Megan", year: 2022, image: "megan.jpeg", rating: 4, src:"megan.html" },
+  { title: "The Platform", year: 2019, image: "theplatform.jpeg", rating: 4 , src:"theplatform.html"},
+  { title: "Time Cut", year: 2024, image: "timecut.jpeg", rating: 4, src:"timecut.html" },
+  { title: "Uyumsuz", year: 2014, image: "uyumsuz.jpeg", rating: 4, src:"uyumsuz.html" },
+  { title: "Yıldızlararası", year: 2014, image: "yıldızlararası.jpeg", rating: 4,src:"yıldızlararası.html" },
+//bilim kurgu burada bitiyor 
+      { title: "Acı Tatlı Ekşi", year: 2017, image : "acıtatlıeksi.jpeg", rating: 4, src:"acıtatlıeksi.html" },
+      { title: "Aşk Ve Gurur ", year: 2005, image: "aşk ve gurur.jpeg", rating: 5 ,src:"aşkvegurur.html"},
+      { title: "Lick ", year: 2024, image: "lick.jpeg", rating: 3.8 ,src:"lick.html"},
+      { title: "Hadi İnşallah", year: 2014, image: "hadiınsallah.jpeg", rating: 4 ,src:"hadiinş.html"},
+      { title: "Selvi Boylum Al Yazmalım", year: 1977, image: "selviboylum.jpeg", rating: 4,src:"selviboylum.html" },
+      { title: "Romeo Ve Juliet", year: 1996, image: "romeovejuliet.jpeg", rating: 4,src:"romeovejuliet.html" },
+      { title: "Sonsuz Aşk", year: 2017, image: "sonsuzask.jpeg", rating: 4 ,src:"sonsuzask.html"},
+      { title: "Uğultulu Tepeler", year: 2011, image: "uğultulutepeler.jpeg", rating: 4,src:"uğultulutepeler.html" },
+      { title: "Mucize", year: 2015, image: "mucize.jpeg", rating: 4 ,src:"mucize.html"},
+      { title: "Marked Men", year: 2025, image: "markedmen.jpeg", rating: 4,src:"markedmen.html" },
+//romantik burada bitiyor
+      { title: "Annabella", year: 2014, image : "annabella.jpg", rating: 4, src:"annabella.html" },
+      { title: "Dabbe", year: 2015, image: "dabbe.jpg", rating: 5 ,src:"dabbe.html"},
+      { title: "Freddy", year: 2023, image: "freddy.jpg", rating: 3.8 ,src:"freddy.html"},
+      { title: "Efsunlu 3: Muska", year: 2023, image: "efsunlumuska.jpg", rating: 4 ,src:"efsunlumuska.html"},
+      { title: "El Ummar", year: 2018, image: "el ummar.jpg", rating: 4,src:"elummar.html" },
+      { title: "Palyaço", year: 2014, image: "palyaço.jpg", rating: 4 ,src:"IT.html"},
+      { title: "The Haunted Hotel", year: 1878, image: "hauntedhotel.jpg", rating: 4 ,src:"thehountedhotel.html"},
+      { title: "Siccin 5", year: 2015, image: "siccin5.jpg", rating: 4 ,src:"siccin5.html"},
+      { title: "Tin ve Tina", year: 2023, image: "tintina.jpg", rating: 4 , src:"tintina.html"},
+      { title: "Üç Harfliler : Nazar", year: 2023, image: "üçharflilernazar.jpg", rating: 4 ,src:"ucharfliler.html"},
+   //korku burada bitiyor
+      { title: "Deliha 2", year: 2018, image : "deliha2.jpeg", rating: 4, src: "deliha2.html" },
+      { title: "3 Aptal", year: 2009, image: "3aptal.jpeg", rating: 5,src: "3aptal.html" },
+      { title: "Aykut Enişte", year: 2019, image: "aykuteniste.jpeg", rating: 3.8,src:"aykutenişte.html"},
+      { title: "Tatlı Villa", year: 2025, image: "tatlıvilla.jpeg", rating: 4,src:"tatlıvilla.html" },
+      { title: "Recep İvedik 4", year: 2008, image: "recepivedik4.jpeg", rating: 4 , src:"recepivedik4.html"},
+      { title: "Beş Kör Randevu", year: 2014, image: "beşkörrandevu.jpeg", rating: 4,src:"beşkörrandevu.html" },
+      { title: "Felekten Bir Gece", year: 2009, image: "felektenbirgece.jpeg", rating: 4 ,src:"felektenbirgece.html"},
+      { title: "Yükseliş", year: 2024, image: "yükseliş.jpeg", rating: 4 , src:"yükseliş.html"},
+      { title: "Yol Arkadaşım", year: 2017, image: "yolarkadaşım.jpeg", rating: 4, src:"yolarkadaşım.html" },
+      { title: "Lohusa", year: 2024, image: "lohusa.jpeg", rating: 4 ,src:"lohusa.html"},
+      { title: "Küçük Adam", year: 2006, image: "küçükadam.jpeg", rating: 4,src:"küçükadam.html" },
+   //komedi burada bitiyor
+      { title: "Börü", year: 2018, image : "börü.jpg", rating: 4, src:"boru.html" },
+      { title: "Dağ 1 ", year: 2012, image: "dağ1.jpg", rating: 5,src:"dag1.html" },
+      { title: "Dağ 2 ", year: 2016, image: "dağ.jpg", rating: 3.8 ,src:"dag2.html"},
+      { title: "İronman", year: 2008, image: "ironman.jpg", rating: 4 ,src:"ironman.html"},
+      { title: "Captan Amerika", year: 2011, image: "captanamerika.jpg", rating: 4 ,src:"captanamerika.html"},
+      { title: "Şafak Vakti", year: 2021, image: "safakvakti.jpg", rating: 4 ,src:"safakvakti.html"},
+      { title: "Şımarık", year: 2024, image: "sımarık.jpg", rating: 4 ,src:"simarik.html"},
+      { title: "Transformers", year: 2009, image: "transformes.jpeg", rating: 4 ,src:"transformes.html"},
+      { title: "The Amazing Spiderman", year: 2012, image: "theamazing.jpeg", rating: 4 ,src:"theamazing.html"},
+      { title: "Venom", year: 2018, image: "venom.jpeg", rating: 4 ,src:"venom.html"},
+   //aksiyon burada bitiyor
+    ];
+
+    function renderFilms(data) {
+      const grid = document.getElementById("filmGrid");
+      grid.innerHTML = "";
+
+      data.forEach(film => {
+        const stars = "⭐".repeat(Math.round(film.rating)) + "☆".repeat(5 - Math.round(film.rating));
+        const filmLink = film.src ? film.src : "#";
+
+        grid.innerHTML += `
+          <div class="film-card">
+            <img src="${film.image}" alt="${film.title}">
+            <div class="film-info">
+              <h3>${film.title}</h3>
+              <p>Hepsi • ${film.year}</p>
+              <div class="rating">${stars}</div>
+              <a href="${filmLink}">Filmi İncele</a><br><br>
+               <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+            </div>
+          </div>
+        `;
+      });
+
+      document.getElementById("filmCount").innerText = `${data.length} film listeleniyor.`;
+    }
+
+    function filterFilms() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = films.filter(f => f.title.toLowerCase().includes(query));
+      renderFilms(filtered);
+    }
+
+      //giriş kontrolü
+      function requireLogin(actionFunction, button) {
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+  if (!isLoggedIn) {
+    alert("Lütfen önce giriş yapınız.");
+    window.location.href = "giriş.html";  // Giriş sayfasının yolu
+    return;
+  }
+  actionFunction(button);
+}
+
+    function sortFilms() {
+      const value = document.getElementById("sortSelect").value;
+      let sorted = [...films];
+      if (value === "asc") {
+        sorted.sort((a, b) => a.year - b.year);
+      } else if (value === "desc") {
+        sorted.sort((a, b) => b.year - a.year);
+      }
+      renderFilms(sorted);
+    }
+
+    function markWatched(button) {
+      const filmCard = button.closest('.film-card');
+      filmCard.style.border = '2px solid #28a745';
+      button.textContent = 'İzledim ✅';
+      button.disabled = true;
+    }
+
+    function markWantToWatch(button) {
+      const filmCard = button.closest('.film-card');
+      filmCard.style.border = '2px solid #ffc107';
+      button.textContent = 'İzlemek İstiyorum 🔥';
+      button.disabled = true;
+    }
+
+    document.getElementById("searchInput").addEventListener("input", filterFilms);
+    document.getElementById("sortSelect").addEventListener("change", sortFilms);
+
+    renderFilms(films);
+
+
+     // Oturum kontrolü
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    const username = localStorage.getItem("username");
+  
+    // Menü açma/kapama
+    function toggleMenu() {
+      const dropdown = document.getElementById("userMenu");
+      dropdown.style.display = (dropdown.style.display === "flex") ? "none" : "flex";
+    }
+  
+    // Menü elemanlarını güncelle
+    function updateUI() {
+      document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "block";
+      document.getElementById("registerLink").style.display = isLoggedIn ? "none" : "block";
+      document.getElementById("favoritesLink").style.display = isLoggedIn ? "block" : "none";
+      document.getElementById("logoutBtn").style.display = isLoggedIn ? "block" : "none";
+  
+      const loginBtn = document.getElementById("loginBtn");
+      loginBtn.textContent = isLoggedIn && username ? `👤 ${username}` : "👤 Giriş Yap";
+    }
+  
+    // Oturumdan çıkış
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("username");
+      location.reload();
+    }
+
+  function logout() {
+    localStorage.removeItem("username");
+    window.location.reload(); // Sayfayı yenile
+  }
+        // Sayfa yüklendiğinde UI'yi güncelle
+        window.onload = updateUI;
+    function addToFavorites(button) {
+  const filmCard = button.closest('.film-card');
+  const filmTitle = filmCard.querySelector('h3').textContent;
+  const filmGenre = filmCard.querySelector('p').textContent.split('•')[0].trim();
+  const filmYear = filmCard.querySelector('p').textContent.split('•')[1].trim();
+
+  // Film verilerini obje olarak oluştur
+  const filmData = {
+    title: filmTitle,
+    genre: filmGenre,
+    year: filmYear,
+    image: filmCard.querySelector('img').src
+  };
+
+  // Favorilere ekleme işlemi
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  favorites.push(filmData);
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+
+  alert(`${filmTitle} İzlemek İstediklerinize eklendi!`);
+
+};
+function markWatched(button) {
+    const card = button.closest('.film-card');
+    card.classList.toggle('watched'); // Toggle sayesinde tekrar basınca kaldırılır
+  }
+  </script>
+</body>
+</html>

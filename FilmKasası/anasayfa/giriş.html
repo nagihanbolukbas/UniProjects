@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giriş Yap / Kayıt Ol</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #26292e, #af90b6);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: #26292e;
+    }
+
+    .logo { max-height: 70px; }
+
+ 
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .categories a button {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid #fff;
+      padding: 12px 18px;
+      color: #fff;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .categories a button:hover {
+      background-color: #a81f48;
+      transform: translateY(-5px);
+    }
+
+    .form-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      background-color: #1e1e2e;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      color: #ff3c78;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .input-container {
+  position: relative;
+  width: 100%;
+}
+
+input[type="password"] {
+  width: 100%;
+  padding: 12px 30px 12px 12px; /* Sağda padding ekleyerek ikona alan bırakıyoruz */
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.show-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #fff;
+}
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff3c78;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover { background-color: #ff6398; }
+
+    .switch {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .switch a {
+      color: #ffcbda;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 480px) {
+      .login-container { padding: 30px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="FilmKasası Logo" class="logo" />
+  </header>
+
+  <div class="categories">
+    <a href="../anasayfa/anasayfa.html"><button>🏠 Ana Sayfa</button></a>
+    <a href="../dramm/dram.html"><button onclick="filterByGenre('dram')">🎭 Dram</button></a>
+    <a href="../romantik/romantik.html"><button onclick="filterByGenre('romantik')">💘 Romantik</button></a>
+    <a href="../komedi/komedi.html"><button onclick="filterByGenre('komedi')">😂 Komedi</button></a>
+    <a href="../korku/korku.html"><button>👻 Korku</button></a>
+    <a href="../bilim kurgu/bilimkurgu.html"><button onclick="filterByGenre('bilim-kurgu')">🌌 Bilim Kurgu</button></a>
+    <a href="../aksiyon/aksiyon.html"><button onclick="filterByGenre('aksiyon')">💥 Aksiyon</button></a>
+    <a href="../hepsi/hepsi.html"><button onclick="filterByGenre('hepsi')">🎬 Hepsi</button></a>
+  </div>
+  
+  <div class="form-wrapper">
+    <div class="login-container">
+      <!-- Giriş Formu -->
+      <div id="loginForm">
+        <h2>Giriş Yap</h2>
+        <input type="text" id="loginUsername" placeholder="Kullanıcı Adı" />
+        
+        <div class="input-container">
+          <input type="password" id="loginPassword" placeholder="Şifre" />
+          <span class="show-password" onclick="togglePassword('loginPassword')">👁️</span>
+        </div>
+
+        <button onclick="login()">Giriş Yap</button>
+        <div class="switch">Üye değil misiniz? <a onclick="showRegister()">Üye olun</a></div>
+      </div>
+
+      <!-- Kayıt Formu -->
+      <div id="registerForm" class="hidden">
+        <h2>Kayıt Ol</h2>
+        <input type="text" id="registerUsername" placeholder="Kullanıcı Adı" />
+        
+        <div class="input-container">
+          <input type="password" id="registerPassword" placeholder="Şifre" />
+          <span class="show-password" onclick="togglePassword('registerPassword')">👁️</span>
+        </div>
+
+        <button onclick="register()">Kayıt Ol</button>
+        <div class="switch">Zaten üye misiniz? <a onclick="showLogin()">Giriş yap</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showRegister() {
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('registerForm').classList.remove('hidden');
+    }
+
+    function showLogin() {
+      document.getElementById('registerForm').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+    }
+
+    function togglePassword(id) {
+      const passwordField = document.getElementById(id);
+      const type = passwordField.type === 'password' ? 'text' : 'password';
+      passwordField.type = type;
+    }
+
+    function register() {
+  const username = document.getElementById('registerUsername').value.trim();
+  const password = document.getElementById('registerPassword').value.trim();
+
+  if (!username || !password) {
+    alert("Kullanıcı adı ve şifre girin.");
+    return;
+  }
+
+  // Kayıtlı kullanıcıları al
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+
+  // Aynı kullanıcı adı var mı kontrol et
+  if (users.some(user => user.username === username)) {
+    alert("Bu kullanıcı adı zaten kayıtlı!");
+    return;
+  }
+
+  // Yeni kullanıcıyı ekle
+  users.push({ username: username, password: password });
+
+  // Güncellenmiş kullanıcı listesini sakla
+  localStorage.setItem('users', JSON.stringify(users));
+
+  alert("Kayıt başarılı!");
+  showLogin();
+}
+
+function login() {
+  const username = document.getElementById('loginUsername').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+
+  // Kayıtlı kullanıcıları al
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+
+  // Kullanıcı adı ve şifre eşleşen kullanıcı var mı?
+  const user = users.find(user => user.username === username && user.password === password);
+
+  if (user) {
+    alert("Giriş başarılı!");
+
+    // Giriş durumu ve kullanıcı adını sakla
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", username);
+
+    window.location.href = 'anasayfa.html'; // Yönlendir
+  } else {
+    alert("Kullanıcı adı veya şifre yanlış!");
+  }
+}
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>FilmFragmanı</title>
+  <style>
+     * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #26292e, #af90b6);
+  color: #fff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  background-color: #272c30;
+}
+
+.logo {
+  max-height: 70px;
+  width: auto;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.categories a button {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid #fff;
+  padding: 12px 18px;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.categories a button:hover {
+  background-color: #ff3c78;
+  transform: translateY(-5px);
+}
+
+.container {
+  padding: 30px 20px;
+  max-width: 90%;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  color: #ffcbda;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.filmsayfa {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.filmsayfa:hover {
+  transform: scale(1.03);
+}
+
+.filmsayfa > h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ff3c78;
+}
+
+.rating {
+  font-size: 1.1rem;
+  color: gold;
+}
+
+.konu {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.film-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.film-info img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.film-info img:hover {
+  transform: scale(1.05);
+}
+
+.details {
+  max-width: 600px;
+}
+
+.details h3 {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  color: #ffcbda;
+}
+
+.details p {
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.fragman {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.fragman h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.fragman iframe {
+  width: 100%;
+  max-width: 1000px;
+  height: 540px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.izlendiBtn {
+  display: block;
+  margin: 30px auto;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.izlendiBtn:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background-color: #12121c;
+  color: #999;
+  font-size: 1rem;
+  margin-top: 60px;
+  border-top: 3px solid #ff3c78;
+}
+
+/* Yorumlar Bölümü */
+.yorumlar60 {
+  background-color: #26292e;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.yorumlar60 h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#yorumForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#yorumForm input,
+#yorumForm textarea,
+#yorumForm select,
+#yorumForm button {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: none;
+  background-color: #cfcece;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+#yorumForm textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#yorumForm button {
+  background-color: #ff3c78;
+  color: #fff;
+  cursor: pointer;
+}
+
+#yorumForm button:hover {
+  background-color: #ff7fa1;
+}
+
+#yorumListesi {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+#yorumListesi li {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.2s ease;
+}
+
+#yorumListesi li:hover {
+  transform: scale(1.03);
+}
+
+.yorum-btnlar {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.like,
+.sil {
+  background-color: #ff3c78;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.like:hover,
+.sil:hover {
+  background-color: #ff7fa1;
+}
+
+/* Önerilen Filmler */
+#onerilen {
+  padding: 30px 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+#onerilen h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#onerilenListe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+#onerilenListe li {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+.onerilen-filmler {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .onerilen-film {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    margin: 10px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .onerilen-film:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .onerilen-film img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 3px solid #eee;
+  }
+
+  .onerilen-film h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+  }
+
+  .onerilen-film p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+/* Kontrol Paneli */
+.controls {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+.controls input {
+  flex: 1;
+  min-width: 200px;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpg" alt="FilmKasası Logo" class="logo" />
+</header>
+
+<div class="categories">
+  <a href="../anasayfa/anasayfa.html"><button>🏠 Ana Sayfa</button></a>
+  <a href="../dramm/dram.html"><button>🎭 Dram</button></a>
+  <a href="../romantik/romantik.html"><button>💘 Romantik</button></a>
+  <a href="../komedi/komedi.html"><button>😂 Komedi</button></a>
+  <a href="../korku/korku.html"><button>👻 Korku</button></a>
+  <a href="../bilim kurgu/bilimkurgu.html"><button>🌌 Bilim Kurgu</button></a>
+  <a href="../aksiyon/aksiyon.html"><button>💥 Aksiyon</button></a>
+  <a href="../hepsi/hepsi.html"><button>🎬 Hepsi</button></a>
+</div>
+
+<div class="controls">
+  <input type="text" id="searchInput" placeholder="Film ara...">
+  <select id="sortSelect">
+    <option value="">Sırala</option>
+    <option value="asc">Yıla Göre Artan</option>
+    <option value="desc">Yıla Göre Azalan</option>
+  </select>
+</div>
+
+<h1>🎬 Film Fragmanı</h1>
+
+<div class="container">
+  <div class="filmsayfa">
+    <h1>The Amazing Spiderman
+        <span class="rating">⭐ 3,9/5 </span></h1>
+    <p class="konu">Peter Parker gerçek ailesi tarafından terk edilmiş dayısı ve yengesinin büyüttüğü 
+        dahası sosyal hayatta zayıf karakterli, lise çağında bir gençtir. Her ergenin yaşadığı 
+        "ben kimim?, nereye aitim?" sorunları daha derin sormaktadır. Bir yandan da Gwen Stacy'ye kör 
+        kütük aşıktır. Bir gün babasına ait bir çanta bulan Parker, anne ve babasının ortadan kaybolmasının
+        ardındaki sırları çözmeye karar verir. Karşısına Oscorp şirketi ve babasının eski ortağı olan Dr. Curt 
+        Connor’ın laboratuvarı çıkar. Artık hiçbir şey Peter Parker eskisi gibi olmayacaktır...</p>
+
+    <div class="film-info">
+      <img src="theamazing.jpeg" alt="Film Görseli">
+      <div class="details">
+        <span><h3>Oyuncular:</h3><h4><p> Andrew Garfield <br> Emma Stone <br> Kelsey Chow (Kelsey Asbille) <br> Stan Lee <br> Rhys Ifans <br> Sally Field </p></h4></span>
+        <br>
+        <span><h3>Yönetmen:</h3><p> Marc Webb </p></span>
+        <span><h3>Senarist:</h3><p> Stan Lee </p></span>
+      </div>
+    </div>
+ 
+    <div class="fragman">
+        <h2>Fragman</h2>
+        <iframe src="https://www.youtube.com/embed/-tnxzJ0SSOw" allowfullscreen></iframe>
+      </div>      
+
+    
+      <div class="yorumlar60">
+        <h2>Yorumlar</h2>
+        <ul id="yorumListesi"></ul>
+        <form id="yorumForm">
+          <input type="text" id="kullaniciAdi" placeholder="Kullanıcı Adı" required>
+          <textarea id="yorumMetni" placeholder="Yorumunuzu buraya yazın..." required></textarea>
+          <select id="puanSec">
+            <option value="1">1 - Kötü</option>
+            <option value="2">2 - Orta</option>
+            <option value="3">3 - İyi</option>
+            <option value="4">4 - Çok İyi</option>
+            <option value="5">5 - Mükemmel</option>
+          </select>
+          <button type="submit">Yorum Yap</button>
+        </form>
+      </div>
+  
+      <button id="izlendiBtn" class="izlendiBtn">İzledim</button>
+    </div>
+      
+   <!-- Önerilen Filmler Bölümü -->
+   <div id="onerilen">
+    <h2>Önerilen Filmler</h2>
+    <div class="onerilen-filmler">
+      <div class="onerilen-film">
+        <a href="../bilim kurgu/fırtınaanı.html">
+        <img src="fırtınaanı.jpeg" alt="Fırtına Anı Film Resmi">
+        </a>
+        <h3>Fırtına Anı</h3>
+        <p>Yıl: 2018</p>
+      </div>
+      <div class="onerilen-film">
+        <a href="../bilim kurgu/uyumsuz.html">
+        <img src="uyumsuz.jpeg" alt="Uyumsuz Arası Film Resmi">
+        </a>
+        <h3>Uyumsuz</h3>
+        <p>Yıl: 2014</p>
+      </div>
+      <div class="onerilen-film">
+        <a href="../bilim kurgu/labirent.html">
+        <img src="labirent.jpeg" alt="Labirent Film Resmi">
+        </a>
+        <h3>Labirent</h3>
+        <p>Yıl: 2014</p>
+      </div>
+      <div class="onerilen-film">
+        <a href="../korku/IT.html">
+         <img src="palyaço.jpg" alt="IT Film Resmi">
+        </a>
+        <h3>IT</h3>
+        <p>Yıl: 2014</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 FilmBox. Tüm hakları saklıdır.</p>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const yorumListesi = document.getElementById('yorumListesi');
+  let yorumlar = JSON.parse(localStorage.getItem('yorumlar60')) || [];
+
+  function yorumElemaniOlustur(yorum, index) {
+    const yorumLi = document.createElement('li');
+    yorumLi.innerHTML = `
+      <p><strong>${yorum.kullaniciAdi}:</strong> ${yorum.yorumMetni}</p>
+      <div class="yorum-rating">⭐ ${yorum.puan}</div>
+      <div class="yorum-btnlar">
+        <button class="like" data-index="${index}">👍 Beğen (${yorum.begeni || 0})</button>
+        <button class="sil" data-index="${index}">🗑 Sil</button>
+      </div>
+    `;
+    return yorumLi;
+  }
+
+  function yorumlariGoster() {
+    yorumListesi.innerHTML = '';
+    yorumlar.forEach((yorum, index) => {
+      const yorumLi = yorumElemaniOlustur(yorum, index);
+      yorumListesi.appendChild(yorumLi);
+    });
+  }
+
+  yorumlariGoster();
+
+  // Yorum ekleme
+  document.getElementById('yorumForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const kullaniciAdi = document.getElementById('kullaniciAdi').value.trim();
+    const yorumMetni = document.getElementById('yorumMetni').value.trim();
+    const puan = document.getElementById('puanSec').value;
+
+    if (kullaniciAdi && yorumMetni) {
+      const yeniYorum = { kullaniciAdi, yorumMetni, puan, begeni: 0 };
+      yorumlar.push(yeniYorum);
+      localStorage.setItem('yorumlar60', JSON.stringify(yorumlar));
+
+      yorumlariGoster();
+
+      document.getElementById('kullaniciAdi').value = '';
+      document.getElementById('yorumMetni').value = '';
+      document.getElementById('puanSec').value = '1';
+    }
+  });
+
+  // Beğen & Sil Butonları
+  yorumListesi.addEventListener('click', function (e) {
+    const index = e.target.dataset.index;
+
+    if (e.target.classList.contains('like')) {
+      yorumlar[index].begeni = (yorumlar[index].begeni || 0) + 1;
+      localStorage.setItem('yorumlar60', JSON.stringify(yorumlar));
+      yorumlariGoster();
+    }
+
+    if (e.target.classList.contains('sil')) {
+      if (confirm("Yorumu silmek istediğine emin misin?")) {
+        yorumlar.splice(index, 1);
+        localStorage.setItem('yorumlar60', JSON.stringify(yorumlar));
+        yorumlariGoster();
+      }
+    }
+  });
+
+  // Film Arama
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.film-card');
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      card.style.display = title.includes(query) ? 'block' : 'none';
+    });
+  });
+
+  // Film Sıralama
+  document.getElementById('sortSelect').addEventListener('change', function () {
+    const sortOrder = this.value;
+    const cards = Array.from(document.querySelectorAll('.film-card'));
+
+    cards.sort((a, b) => {
+      const yearA = parseInt(a.querySelector('p').textContent.split('•')[1].trim());
+      const yearB = parseInt(b.querySelector('p').textContent.split('•')[1].trim());
+
+      return sortOrder === 'asc' ? yearA - yearB : yearB - yearA;
+    });
+
+    const filmGrid = document.getElementById('filmGrid');
+    filmGrid.innerHTML = '';
+    cards.forEach(card => filmGrid.appendChild(card));
+  });
+});
+
+ // Arama Fonksiyonu
+ document.getElementById('searchInput').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.film-card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    });
+
+    // Sıralama Fonksiyonu
+    document.getElementById('sortSelect').addEventListener('change', function () {
+      const sortOrder = this.value;
+      const cards = Array.from(document.querySelectorAll('.film-card'));
+
+      cards.sort((a, b) => {
+        const yearA = parseInt(a.querySelector('p').textContent.split('•')[1].trim());
+        const yearB = parseInt(b.querySelector('p').textContent.split('•')[1].trim());
+
+        return sortOrder === 'asc' ? yearA - yearB : yearB - yearA;
+      });
+
+      const filmGrid = document.getElementById('filmGrid');
+      filmGrid.innerHTML = '';
+      cards.forEach(card => filmGrid.appendChild(card));
+    });
+
+</script>
+
+</body>
+</html>

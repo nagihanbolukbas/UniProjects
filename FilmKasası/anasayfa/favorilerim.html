@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>👀 İzlemek İstediklerim - FilmKasası</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #26292e, #af90b6);
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 40px;
+      background-color: #26292e;
+    }
+
+    .logo {
+      max-height: 70px;
+      width: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #ff3c78;
+      font-size: 2.2rem;
+    }
+
+    .film-grid {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .film-card {
+      width: 220px;
+      background-color: #1e1e2e;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .film-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .film-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .film-info {
+      padding: 15px;
+    }
+
+    .film-info h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .film-info p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .delete-btn {
+      background-color: #ff3c78;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background-color 0.2s;
+    }
+
+    .delete-btn:hover {
+      background-color: #e6336b;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .categories a button {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid #fff;
+      padding: 12px 18px;
+      color: #fff;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .categories a button:hover {
+      background-color: #a81f48;
+      transform: translateY(-5px);
+    }
+    .controls {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .controls input {
+      flex: 1;
+      min-width: 200px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #12121c;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="FilmKasası Logo" class="logo" />
+  </header>
+
+  <div class="categories">
+    <a href="../anasayfa/anasayfa.html"><button>🏠 Ana Sayfa</button></a>
+    <a href="../dramm/dram.html"><button onclick="filterByGenre('dram')">🎭 Dram</button></a>
+    <a href="../romantik/romantik.html"><button onclick="filterByGenre('romantik')">💘 Romantik</button></a>
+    <a href="../komedi/komedi.html"><button onclick="filterByGenre('komedi')">😂 Komedi</button></a>
+    <a href="../korku/korku.html"><button>👻 Korku</button></a>
+    <a href="../bilim kurgu/bilimkurgu.html"><button onclick="filterByGenre('bilim-kurgu')">🌌 Bilim Kurgu</button></a>
+    <a href="../aksiyon/aksiyon.html"><button onclick="filterByGenre('aksiyon')">💥 Aksiyon</button></a>
+    <a href="../hepsi/hepsi.html"><button onclick="filterByGenre('hepsi')">🎬 Hepsi</button></a>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Film ara...">
+    <select id="sortSelect">
+      <option value="">Sırala</option>
+      <option value="asc">Yıla Göre Artan</option>
+      <option value="desc">Yıla Göre Azalan</option>
+    </select>
+  </div>
+
+  <h1>⭐ Favorilerim</h1>
+
+  <section>
+    <div class="film-grid" id="favoritesGrid">
+      <!-- Favori filmler buraya eklenecek -->
+    </div>
+  </section>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer>
+    <p>&copy; 2025 FilmBox. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    function loadFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const favoritesGrid = document.getElementById('favoritesGrid');
+      favoritesGrid.innerHTML = ''; // önceki içeriği temizle
+
+      if (favorites.length === 0) {
+        favoritesGrid.innerHTML = '<p>İzlemek İstediklerin film bulunmamaktadır.</p>';
+        return;
+      }
+
+      favorites.forEach((film, index) => {
+        const filmCard = document.createElement('div');
+        filmCard.classList.add('film-card');
+
+        filmCard.innerHTML = `
+          <img src="${film.image}" alt="${film.title}">
+          <div class="film-info">
+            <h3>${film.title}</h3>
+            <p>${film.genre} • ${film.year}</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <button class="delete-btn">Sil</button>
+          </div>
+        `;
+
+        filmCard.querySelector('.delete-btn').addEventListener('click', () => {
+          deleteFavorite(index);
+        });
+
+        favoritesGrid.appendChild(filmCard);
+      });
+    }
+
+    function deleteFavorite(index) {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      favorites.splice(index, 1);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      loadFavorites();
+    }
+
+    window.onload = loadFavorites;
+  </script>
+
+</body>
+</html>
