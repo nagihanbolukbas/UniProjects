@@ -1,0 +1,418 @@
+<html>
+
+<head>
+    <title>Fransa Yemekler</title>
+
+<body bgcolor="	#E3F2FD">
+    <style>
+        img.logo {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+
+        }
+
+        a {
+            text-decoration: none;
+            /* Alt çizgiyi kaldırır */
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .MenuBarHorizontal {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .MenuBarHorizontal>a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #008080;
+            /* Menünün arka plan rengi */
+            border-radius: 5px;
+        }
+
+        .MenuBarHorizontal>a:hover {
+            background-color: #006666;
+            /* Hover efekti */
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #c2e2dd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .dropdown-content ul li {
+            position: relative;
+            padding: 8px 10px;
+        }
+
+        .dropdown-content ul li:hover {
+            background-color: #ddd;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            /* Yan tarafa açılacak */
+            top: 0;
+            background-color: #c2e2dd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            z-index: 1;
+        }
+
+        .dropdown-content ul li:hover .sub-menu {
+            display: block;
+        }
+
+        #clock-container {
+            margin: 20px;
+            font-size: 20px;
+        }
+
+        .clock {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #c2e2dd;
+            ;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sosyal a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .sosyal img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .sosyal img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    </head>
+
+    <body id="ust" background-color="#D3D3D3">
+           <!-- Menü -->
+           <table border="0" bgcolor="#c2e2dd" width="100%" height="70">
+            <tr align="center">
+                <td width="120" height="100" rowspan="3" align="center">
+                    <a href="../Anasayfa/anasayfa.html"><img src="web.jpg" class="logo"></a>
+                </td>
+                <td colspan="2">
+                    <div class="dropdown">
+                        <a href="#" class="MenuBarItemSubmenu"><b>ÜLKELER</a></b>
+                        <div class="dropdown-content">
+                            <ul>
+                                <li>
+                                    <b>Fransa</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../fransa_yerler/fransayerler.html"><b>Yerler</a></li></b>
+                                        <li><a href="../fransa_yemekler/fransayemekler.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>İtalya</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../italya_yerler/italya_yerler.html"><b>Yerler</a></li></b>
+                                        <li><a href="../italya_yemek/italya_yemek.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Japonya</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../japonya_yerler/japonya_yerler.html.html"><b>Yerler</a></li></b>
+                                        <li><a href="../japonya_yemek/japonya_yemek.html.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <a href="../hakkimizda/hakkimizda.html" class="MenuBarItemSubmenu"><b>HAKKIMIZDA</a></b>
+                </td>
+                <td colspan="2">
+                    <a href="../iletisim/iletişim.html" class="MenuBarItemSubmenu"><b>İLETİŞİM</a></b>
+                </td>
+            </tr>
+        </table>
+    
+
+        <h1>
+            <font color="black">YEMEKLER:</font>
+            <h2><a href="#corba">
+                    <font color="black">1. Soğan Çorbası
+                </a></font>
+            </h2>
+            <h2><a href="#tartar">
+                    <font color="black">2. Dana Tartar
+                </a></font>
+            </h2>
+            <h2><a href="#kruvasan">
+                    <font color="black">3. Kruvasan
+                </a></font>
+            </h2>
+            <h2><a href="#Makaron">
+                    <font color="black">4. Makaron
+                </a></font>
+            </h2>
+            </font>
+            <h2><a href="#KremBrule">
+                    <font color="black">5. Krem Brule
+                </a></font>
+            </h2>
+                    
+        </h1>
+        <hr>
+        <div style="background-color:E3F2FD;">
+            <h1 id="corba">
+                <font color="Maroon"><i>Soğan Çorbası</i>
+            </h1>
+            </font>
+            <p>
+                <font size="3" color="black">Roma döneminden beri yapılan soğan çorbasının modern tarifi Fransa'ya
+                    aittir.
+                    Efsaneye göre çorba, Kral XV. Louis tarafından icat edilmiştir. Gece geç saatlerde av köşkündeyken,
+                    erzak olarak yalnızca soğan, tereyağı ve şampanya olduğunu keşfeden kral, malzemeleri pişirdi ve ilk
+                    Fransız soğan çorbasını yaptı.
+            </p>
+            </font>
+            <img src="sogan.jpg" alt="r10" hspace="10" align="right" />
+            <p>
+                <font size="3" color="black"> Klasik çorbaların içinde oldukça bilinen ve kökeni fransa'ya dayanan soğan
+                    çorbasının tarihi antik çağlara dayanmaktadır.
+                    Antik çağlarda çanaklar içinde yapılan soğan çorbası, 18. yüzyılda modern şekilde fransa'da
+                    çıkmıştır.
+                    Zamanla fransız mutfağının en ünlü ve önemli çorbası olarak farklı kültürlerde yer edinmiştir.
+                    Üzerine kızarmış ekmek krutonları ve rendelenmiş peynir eklenir ve çorba mükemmel bir
+                    şekildegratinleşmesi için fırına verilir.
+                    Bazen restoran menülerinde'gratinée à l'oignon' olarak adlandırılır.
+                    Mükemmel bir rahatlık yemeği olan soğan çorbası, özellikle soğuk algınlığına karşı iyileştirici
+                    özellikleriyle de bilinir.
+            </p>
+            </font>
+            <strong><u>
+                    <font color="black">Ünlü Mekanlar:
+                </u>Paris'in bistro ve brasserie'lerinde</font></strong>
+            <br>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <h2 id="tartar">
+                <font color="Maroon"><i>Dana Tartar</i>
+            </h2>
+            </font>
+            <p>
+                <font size="3" color="black">
+                    <img src="dana1.jpg" alt="r10" hspace="10" align="right" />
+                    <p>
+                        <font size="3" color="black">Fransa’ya özgü lezzetlerden biri olan dana tartar, demir ve B
+                            vitamini bakımından oldukça zengin.
+                            Protein deposu olması sebebiyle uzun yıllardır Fransa’da hazırlanan ve bağışıklığını
+                            güçlendirmek isteyenler tarafından tüketilen dana tartar, Fransa’nın her bölgesinde oldukça
+                            popüler.
+                            <img src="dana2.jpg" alt="r10" hspace="10" height="120" align="left" />
+                            <p>
+                                <font size="3" color="black">Kas gelişimini desteklediği için sporcular tarafından
+                                    tercih edilen, başlangıç menülerinde ara sıcaklar ile birlikte sunulan dana tartarın
+                                    içerisinde satır dana kıyma, yumurta, acı hardal, kapari, acı sos, karabiber, deniz
+                                    tuzu, soğan ve maydanoz bulunuyor.
+                                    Genellikle yanında kızartılmış tereyağlı ekmek ile servis ediliyor. Zengin akşam
+                                    yemekleri için başarılı bir başlangıç menüsü olan ancak protein bakımından güçlü
+                                    olduğu için tek başına tüketilen dana tartar, yöre halkı tarafından günün her saati
+                                    tüketiliyor.
+
+                                </font>
+                            </p>
+                            <strong><u>Ünlü Mekanlar:</u>L'Aubergeade,Il Etait Un Square</strong>
+                            <br><br><br><br>
+                            <hr>
+                            <h2 id="kruvasan"><i>
+                                    <font color="Maroon">Kruvasan</font>
+                                </i></h2>
+                            <p>
+                                <font size="3" color="black"><img src="kruvasan.jpg" alt="r10" hspace="10" align="right"
+                                        height="120" width="200">
+                                    Kruvasan Fransızcada "Croissant" olarak adlandırılmaktadır.
+                                    Kruvusan birçok kattan oluşan milföy ve tereyağı hamurundan oluşmaktadır.
+                                    Avrupa'nın her yerinde genellikle de Fransa'da kahvaltıda kruvasan çokça tercih
+                                    edilir.
+                                    Kruvasanın kökeni kipfrel adı verilen mayalı başka bir hamur işine dayanmaktadır. Bu
+                                    hamur işinin 13.yüzyılda Avusturya'da çeşitli şekillerde yapıldığına dair tarihi
+                                    deliller vardır.
+                                    1683 yılında yani Osmanlı ordusunun Viyana'yı ikinci kez kuşattığı zamanda Osmanlı,
+                                    şehri ele geçirmek için surlara top ateşiyle saldırmakla kalmayıp surların altından
+                                    da şehre doğru ilerleyen bir tünel kazmıştır. Amaçları da surların hızlıca düşmesini
+                                    sağlayarak şehri ele geçirmektir.
+                                    Gece boyunca çalışan Viyanalı fırıncılar, 1683 istilası sırasında şehrin altından
+                                    tünel açmaya çalışan Osmanlı'yı duymuşlardır.
+                                    Seslerin gelmeye başladığını fark eden fırıncılar hemen şehrin muhafızlarına haber
+                                    verip gerekli önlemlerin alınmasına yardım etmişlerdir.
+                                    Şehrin muhafızlarına yardımcı olan fırıncılar, Viyana'yı Osmanlı kuşatmasından
+                                    kurtarmıştır.
+                                    Fırıncılar bu olayı anmak için kipferl isimli hamur işini Osmanlı sancağındaki
+                                    hilalden esinlenerek hilal şeklinde yaparak bugün bildiğimiz kruvasan şeklinin
+                                    oluşmasına katkı sağlamışlardır.
+                                    Kruvasanın şeklinin ortaya çıkışı konusunda farklı rivayetler mevcuttur.
+                                    Bazıları kuşatmanın sonrasında hilal şeklinde ilk kruvasanı Viyanalı fırın ustasının
+                                    yaptığını söylerken bazıları da Viyana'ya o zamanlar destek veren Sırp casusunun
+                                    satışa sunduğunu söylemektedir.
+                                    Kimileri de bu şekli vermelerinin nedeni olarak bu olayı anma isteklerinin olduğunu
+                                    kimileri de dalga geçme amacı taşıdığını söylemektedir.
+                                    Fransa'nın kruvasan ile tanışması 1770 yılında Avusturya Arşidüşesi Marie
+                                    Theresa'nın kızının Fransız veliahttı ile evlenmesiyle başlıyor. Evlilik sebebi ile
+                                    Viyana'dan Paris'e taşınan Marie Antoinette'nin eşi tahta geçiyor.
+                                    Fransız kraliçesi olan Avusturya asıllı Marie Antoinette, Viyana'dan bildiği ve
+                                    sevdiği bu hilal şeklindeki kruvasanların saray mutfağına taşınmasını sağlıyor.
+                                    Kruvasanın namı zaman içerisinde saray mutfağından saray çevreleri ve zenginlerin,
+                                    ardından da tüm halka yayılıyor ve herkes tarafından çok seviliyor.
+                                    Reçetesini Avusturya'dan şeklini ise Osmanlı'dan alan bu lezzet, işte böyle "meşhur
+                                    bir Fransız lezzetine" dönüşüyor.
+                            </p>
+                        </font>
+                        <strong><u>Ünlü Mekanlar:</u>Maison Doucet,Boulangerie Victoire,Le Moulin de la Croix
+                            Nivert</strong>
+                        <br>
+                        <hr>
+                    <h2 id="Makaron"><i>
+                            <font color="Maroon">MAKARON</font>
+                        </i></h2>
+                    <p>
+                        <font size="3">
+                             Makaron, bilinen tarihinde ilk defa Avrupa’da ve Orta Çağ’da görüldü. O zamanlar makaron
+                            badem, yumurta akı ve şekerden yapılmış küçük bir tatlıydı, dışı gevrek, içi yumuşaktı.
+                            Makaron her ne kadar Fransız tatlısı olarak bilinse de Larousse Gastronomique’e göre ilk
+                            olarak, 1791’de Venedik manastırlarında üretilmeye başlandı.
+                            <img src="makaron.jpg" alt="r10" hspace="10" align="right" height="120" width="200">
+                            <p>
+                                <font size="3" color="black">Fransız kraliçesi Catherine de Medici’nin 1533 yılında II.
+                                    Henry ile evlenip Fransa’ya gelmesiyle makaronun Fransa’daki tarihi başladı.
+                                    Catherine de Medici Fransa’ya gelirken yanında İtalyan aşçısını da getirir ve
+                                    törende misafirlere sunulması için bu küçük tatlılardan yapılmasını ister. Herkes
+                                    tarafından çok beğenilen bu küçük tatlılar popülerleşmeye başlar.
+                                    Fransız Devrimi ile birlikte iki Carmelite rahibesinin geçinmek için makaron yapıp
+                                    satmaları ile de makaron tüketimi gittikçe yaygınlaşmaya başlar ve Fransız halkının
+                                    vazgeçemediği tatlılardan biri olur ve rahibeler “Macaron Kardeşler” olarak
+                                    tanınmaya başlar.
+                                    O zaman yapılan makaronlar herhangi bir süsleme, aroma veya ganaj içermiyordu.<br>
+                                    <strong><u>Ünlü Mekanlar:</u>Epicure,Can Alegria Paris</strong>
+                                    <br><br><br>
+                                    <hr>
+                                    <h2 id="KremBrule">
+                                        <font color="Maroon">Krem Brule</font>
+                                    </h2>
+                                    <p>
+                                        <font size="3" color="black"><img src="kremB.jpg" alt="r10" hspace="10"
+                                                align="right" height="200" width="180">
+                                            Crème brûlée adlı tatlının en eski tarifi François Massialot'un 1691 yılında
+                                            yayınlanan Cuisinier royal et bourgeois kitabında yer almaktadır.Kökeni
+                                            sorusu, modern gastronomi camiasındaki tartışmalara ilham kaynağı oldu.
+                                            Tatlı yumurta sarısı ve süt ile bir tutam un temel alınarak hazırlanır.
+                                            François Massialot, pişirildikten sonra "içine konulan şekere ek olarak
+                                            üstüne tatlandırılması gerektiğini" belirtiyor.
+                                            Bazı yazarlar Bartolomeo Stefani'nin Latte alla Spagnuola'nın (1662) crema
+                                            catalana'yı tanımladığını belirtir,üzerine şeker eklenerek servis edilmeden
+                                            önce muhallebinin üst kısmının kızartılmasını gerektirir.
+                                            Ancak öyle görünüyor ki Massialot, François Pierre de La Varenne tarafından
+                                            40 yıl önce 1651'de yayınlanan Le cuisinier françois'de anlatılan iki tarifi
+                                            alıp mükemmelleştirdi.Sırasıyla Oeufs au fait ve Oeufs à la crème olarak
+                                            adlandırılan her iki krema, çırpılmış yumurta, süt veya krema, biraz
+                                            tereyağı, tuz ve bir karışımın pişirilmesiyle yapılıyordu.
+                                            Kıvrıldıktan sonra "ateş paletiyle renklendirildi" ve servis edilirken şeker
+                                            serpildi.
+                                            Bir tabağın yüzeyinin sıcak ütüyle renklendirilmesi için yakılması, aynı
+                                            kitaptaki diğer tariflerde de görülür; örneğin oeufs au miroir de crème
+                                            (kremalı aynada yumurta), ramequin de fromage (peynirli tost) ve ramequin d
+                                            'oignon (soğan tostu) gibi yiyeceklerde de bu işlem uygulandı.
+                                            "Yanmış krema" adı daha sonra Massialot'un Fransızca: Cuisinier royal et
+                                            bourgeois kitabının 1702 İngilizce çevirisinde yemeğe atıfta bulunmak için
+                                            kullanıldı.1740 yılında benzer bir tariften crême à l'Angloise veya 'İngiliz
+                                            kreması' olarak bahsetti ve bu da kökeni konusunda şüphe uyandırdı.
+                                            Tatlı, 1879'da Trinity College, Cambridge'de "Trinity Cream" veya "Cambridge
+                                            yanık kreması" olarak tanıtıldı ve kolej kolları "kremanın üzerine markalama
+                                            demiriyle damgalandı".1980'li yıllara kadar Fransız yemek kitaplarında crème
+                                            brûlée adında bir tatlı bir daha yer almadı.
+                                            Crème brûlée, 19. yüzyıl ve 20. yüzyılın hem Fransız hem de İngiliz yemek
+                                            kitaplarında genel olarak nadirdi.Tatlı 1980'lerde son derece popüler hale
+                                            geldi, tatlı için muhtemelen Sirio Maccioni tarafındanː "o on yılın zevkine
+                                            düşkünlüğünün ve restoran patlamasının sevgilisinin bir sembolü" denildi.
+                                            Tatlı Sirio Maccioni tarafından New York restoranı Le Cirque'de popüler hale
+                                            getirildi. Bunu "Paris'ten Peoria'ya kadar restoranlardaki en ünlü ve açık
+                                            ara en popüler tatlı" yaptığını iddia etti.
+                                            <p>
+                                                <font size="3" color="black"></font>
+                                            </p>
+                                            <strong><u>Ünlü Mekanlar:</u> Le Cabanon de la Butte,Le Bouclard
+
+                                            </strong>
+                                            <br><br><br>
+                                            <button><a href="#top">Yukarı Çık</a></button>
+        </div>
+        <footer>
+            <h4>TÜM HAKLARI SAKLIDIR</h4>
+            <div class="sosyal" align="right">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="face.png" alt="Facebook" />
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="x.png" alt="X" />
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="insta.png" alt="Instagram" />
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="yt.png" alt="Youtube" />
+                </a>
+            </div>
+        </footer>
+
+</html>

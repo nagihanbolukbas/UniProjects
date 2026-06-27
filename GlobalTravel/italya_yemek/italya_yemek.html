@@ -1,0 +1,413 @@
+<html>
+
+<head>
+    <title>İtalya Yemekler</title>
+</head>
+
+<body>
+
+    <body bgcolor="	#E3F2FD">
+        <style>
+            img.logo {
+                border-radius: 50%;
+                height: 150px;
+                width: 150px;
+
+            }
+
+            a {
+                text-decoration: none;
+                /* Alt çizgiyi kaldırır */
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            .MenuBarHorizontal {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .MenuBarHorizontal>a {
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                display: inline-block;
+                padding: 15px 20px;
+                background-color: #008080;
+                /* Menünün arka plan rengi */
+                border-radius: 5px;
+            }
+
+            .MenuBarHorizontal>a:hover {
+                background-color: #006666;
+                /* Hover efekti */
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #c2e2dd;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                min-width: 200px;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content ul {
+                list-style-type: none;
+                padding: 10px;
+                margin: 0;
+            }
+
+            .dropdown-content ul li {
+                position: relative;
+                padding: 8px 10px;
+            }
+
+            .dropdown-content ul li:hover {
+                background-color: #ddd;
+            }
+
+            .sub-menu {
+                display: none;
+                position: absolute;
+                left: 100%;
+                /* Yan tarafa açılacak */
+                top: 0;
+                background-color: #c2e2dd;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                min-width: 200px;
+                z-index: 1;
+            }
+
+            .dropdown-content ul li:hover .sub-menu {
+                display: block;
+            }
+
+            #clock-container {
+                margin: 20px;
+                font-size: 20px;
+            }
+
+            .clock {
+                margin: 10px 0;
+                font-weight: bold;
+            }
+
+            footer {
+                background-color: #c2e2dd;
+                ;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .sosyal a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+
+            .sosyal img {
+                width: 40px;
+                height: 40px;
+                transition: transform 0.3s ease;
+            }
+
+            .sosyal img:hover {
+                transform: scale(1.2);
+            }
+        </style>
+
+        <body style="text-decoration:none;">
+              <!-- Menü -->
+        <table border="0" bgcolor="#c2e2dd" width="100%" height="70">
+            <tr align="center">
+                <td width="120" height="100" rowspan="3" align="center">
+                    <a href="../Anasayfa/anasayfa.html"><img src="web.jpg" class="logo"></a>
+                </td>
+                <td colspan="2">
+                    <div class="dropdown">
+                        <a href="#" class="MenuBarItemSubmenu"><b>ÜLKELER</a></b>
+                        <div class="dropdown-content">
+                            <ul>
+                                <li>
+                                    <b>Fransa</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../fransa_yerler/fransayerler.html"><b>Yerler</a></li></b>
+                                        <li><a href="../fransa_yemekler/fransayemekler.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>İtalya</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../italya_yerler/italya_yerler.html"><b>Yerler</a></li></b>
+                                        <li><a href="../italya_yemek/italya_yemek.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Japonya</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../japonya_yerler/japonya_yerler.html.html"><b>Yerler</a></li></b>
+                                        <li><a href="../japonya_yemek/japonya_yemek.html.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <a href="../hakkimizda/hakkimizda.html" class="MenuBarItemSubmenu"><b>HAKKIMIZDA</a></b>
+                </td>
+                <td colspan="2">
+                    <a href="../iletisim/iletişim.html" class="MenuBarItemSubmenu"><b>İLETİŞİM</a></b>
+                </td>
+            </tr>
+        </table>
+            <h1>
+                <font color="black">YEMEKLER:</font>
+                <h2><a href="#pizza">
+                        <font color="black">1. Pizza
+                    </a></font>
+                    <p><a href="#lazanya">
+                            <font color="black">2. Lazanya
+                        </a></font>
+                    </p>
+                    <p><a href="#arancini">
+                            <font color="black">3. Arancini
+                        </a></font>
+                    </p>
+                    <p><a href="#tiramisu">
+                            <font color="black">4. Tiramisu
+                        </a></font>
+                    </p>
+                    <p><a href="#gelato">
+                            <font color="black">5. Gelato
+                        </a></font>
+                </h2>
+                </p>
+            </h1>
+            <hr>
+            <div style="background-color:E3F2FD;">
+                <h2 id="pizza">
+                    <font color="Maroon"><i>PİZZA</i>
+                </h2>
+                </font>
+                <p>
+                    <font size="3">Pizza (İtalyanca: [ˈpittsa], Napoliten: [ˈpittsə]), domates, peynir ve genellikle
+                        çeşitli diğer
+                        malzemelerle (mantar, soğan, zeytin, ananas, et vb.) yenen bir yemektir.Üstü genellikle
+                        yuvarlak,düz bir mayalı buğday
+                        bazlı hamur tabanından oluşan İtalyan kökenli bir yemektir. Geleneksel olaraktaş fırında yüksek
+                        sıcaklıkta pişirilir. Küçük bir
+                        pizzaya bazen pizzetta denir. Pizza yapan bir kişi pizzaiolo olarak bilinir.İtalya'da bir
+                        restoranda servis edilen pizza,
+                        dilimlenmeden sunulur ve bıçak ve çatal kullanılarak yenir. Ancak gündelik ortamlarda, elde
+                        tutularak yenmek üzere dilimler halinde kesilir.
+                        Pizza terimi ilk olarak 10. yüzyılda Campania sınırındaki Lazio'daki Güney İtalya kasabası
+                        Gaeta'dan bir Latin el yazmasında kaydedildi. Modern pizza Napoli'de icat
+
+                </p>
+                </font>
+                <img src="pizza.jpg" White="200" height="200" align="right" /></h1>
+                <p>
+                    <font size="3"> Pizza terimi ilk olarak 10. yüzyılda Campania sınırındaki Lazio'daki Güney İtalya
+                        kasabası Gaeta'dan bir Latin el yazmasında kaydedildi.
+                        Modern pizza Napoli'de icat edildi ve yemek ve çeşitleri o zamandan beri birçok ülkede popüler
+                        hale geldi. Dünyanın en popüler gıdalarından biri ve Avrupa, Kuzey Amerika ve
+                        Avustralasya'da yaygın bir fast food öğesi haline geldi; pizzacılarda (pizza konusunda
+                        uzmanlaşmış restoranlar),pizza teslimi yoluyla ve sokak yemeği
+                        olarak Akdeniz mutfağı sunan restoranlarda mevcuttur.Çeşitli gıda şirketleri, ev fırınında
+                        tekrar ısıtılmak üzere marketlerde dondurulabilecek hazır pişmiş pizzalar satmaktadır.
+                </p>
+                </font>
+                </p>
+                <p>
+                    <font size="3">2017'de dünya pizza pazarı 128 milyar ABD dolarıydı ve ABD'de 76.000 pizzacıya
+                        yayılmış 44 milyar dolardı
+                        Genel olarak, 2 yaş ve üzerindeki ABD nüfusunun %13'ü herhangi bir günde pizza
+                        tüketmiştirAssociazione Verace Pizza Napoletana
+                        (Lafzen Gerçek Napoliten Pizza Derneği) 1984 yılında kurulmuş, merkezi Napoli'de bulunan ve
+                        geleneksel Napoliten pizzasını tanıtmayı
+                        amaçlayan kar amacı gütmeyen bir kuruluştur. Napoli pizza, 2009 yılında İtalya'nın talebi
+                        üzerine Avrupa Birliği'ne Geleneksel Özellik
+                        Garantili yemek olarak edildi ve 2017'de yapım sanatı UNESCO'nun somut olmayan kültürel miras
+                        listesine dahil edildi.
+                </p>
+                </font>
+                <strong><u>Ünlü Mekanlar:</u>Casa Manco, Pizzium - Roma via Piave, Pizza Zizza</strong>
+                <br><br>
+                <hr>
+                <h2 id="lazanya">
+                    <font color="Maroon"><i>LAZANYA</i>
+                </h2>
+                </font>
+                <p>
+                    <font size="3">Lazanya, peynir, domates sosu veya ragù (bir tür et sosu) ile yapılan İtalya asıllı
+                        bir yemektir.
+                        Türkiye'de benzeri su böreğinin domates soslu ve daha sulu pişirilmiş bir çeşidi denilebilir.
+                        Farklı katmanlarda ve farklı
+                        şekillerde yapılabilen yemeğe, ricotta veya mozzarella peyniri eklenebilmektedir."Lazanya"
+                        sözcüğü, başta pişirme kabının adı
+                        olsa da, günümüzde sadece yemeğin adına lazanya denilmektedir. İngilizce konuşan ülkelerde
+                        "lasagne" sözcüğü kullanılsa da
+                        Amerika'da "lasagna" olarak geçmektedir.
+                    </font>
+                </p>
+                <img src="lazanya.jpg" White="200" height="200" align="right" />
+                <p>
+                    <font size="3">Lazanya geleneği Emilia Romagna'da ortaya çıkmıştır ve oradan tüm dünyada İtalyan
+                        mutfağının sembollerinden
+                        Anavatanı İtalya olan ve dalgalı makarna katmanlarından yapılan, sosunun adını (Bolognese)
+                        Bologna’dan alan Lazanya;
+                        İtalyanca’da Lasagne, İngilizce’de Lasagna olarak bilinir. Lazanya adının Yunanca tencere
+                        anlamına gelen “Lasanon”
+                        kelimesinden türediği düşünülmektedir. Yani Lasagna kelimesi yemeğin kendisini değil, piştiği
+                        kabı işaret etmektedir.
+                        1390 yılında İngilitere’de yayımlanan ilk yemek kitabı olan The Forme of Cury lazanya tarifi de
+                        içermektedir.biri haline gelmiştir.
+                    </font>
+                </p>
+                <img src="lazanya2.jpg" alt="r10" hspace="10" height="120" align="left" />
+                <p>
+                    <font size="3">Amerikan lazanyası—çoğu İtalyan Amerikalının kökeni Güney İtalya'ya dayandığından
+                        genellikle güney terimi
+                        kullanılır—Napoli şablonunu takip etme eğilimindedir , ancak birçok çeşidi vardır. Örneğin
+                        vejetaryen bir versiyonda et ıspanakla
+                        ve bazen biber ve kabak gibi diğer sebzelerle değiştirilir. İtalya'da lasagne verdi olarak
+                        bilinen erişteler , bir bileşen olarak
+                        ıspanakla yapılır.Lazanya yapmak, diğer makarnaların çoğundan daha fazla emek gerektiren bir
+                        işlemdir.
+
+                    </font>
+                </p>
+                <strong><u>Ünlü Mekanlar:</u> OThat's Amore, Ristorante Santa Cristina al Quirinale, Klass
+                    Restaurant</strong>
+                <br><br><br><br>
+                <hr>
+                <h2 id="arancini"><i>
+                        <font color="Maroon">ARANCİNİ</font>
+                    </i></h2>
+                <p>
+                    <font size="3"><img src="arancini.jpg" alt="r10" hspace="10" align="right" height="120" width="200">
+                        Arancini ( İngiltere'de / ˌ ær ən ˈ tʃ iː n i / , ABD'de / ˌ ɑːr -/ , İtalyanca : [ aranˈtʃiːni]
+                        ;
+                        Sicilyalı: [aɾanˈtʃiːnɪ, -ˈdʒiː-] ; tekil adı : arancino ), arancine ( tekil adı : arancina )
+                        olarak da bilinir , içi
+                        doldurulup ekmek kırıntılarıyla kaplanan ve kızartılan İtalyan pirinç toplarıdır . Sicilya
+                        mutfağının temel gıdasıdır .
+                        En yaygın arancini dolguları, ragù (düşük sıcaklıkta domates sosu ve baharatlarla yavaş
+                        pişirilen et veya kıyma), mozzarella
+                        veya caciocavallo peyniri ve genellikle bezelye ile doldurulmuş al ragù veya al sugo ve
+                        prosciutto ve mozzarella veya beşamel
+                        sos ile doldurulmuş al burro veya ô burru'dur .Dolguları ve şekilleri bakımından farklılık
+                        gösteren bir dizi bölgesel çeşidi mevcuttur.
+                        Doğu Sicilya'da, özellikle Catania ve Messina gibi şehirlerde üretilen Arancini al ragù , Etna
+                        yanardağından esinlenerek konik bir şekle sahiptir .
+                </p>
+                </font>
+                <strong><u>Ünlü Mekanlar:</u> GluFree Bakery, Antica Focacceria San Francesco, A'Vucciria</strong>
+                <br>
+                <hr>
+                <h2 id="tiramisu"><i>
+                        <font color="Maroon">TİRAMİSU</font>
+                    </i></h2>
+                <p>
+                    <font size="3"> Tiramisu'nun 1960'ların sonu veya 1970'lerin başında icat edildiği anlaşılıyor ancak
+                        tam olarak nerede ve ne zaman icat edildiği belirsiz.Bazıları tarifin yumurta sarısı ve şekerden
+                        yapılan
+                        daha basit bir tatlı olan sbatudin'den esinlenerek yapıldığına inanıyor. Diğerleri ise bunun
+                        başka bir
+                        yemek olan dolce Torino'dan kaynaklandığını iddia ediyor .Tiramisu tarifi 1960'lardan önceki
+                        yemek kitaplarında bulunmuyor.
+                        1978'de yayınlanan bir Sydney Morning Herald restoran köşesinde bahsediliyor. 1970'lerin
+                        ansiklopedilerinde
+                        ve sözlüklerinde bahsedilmiyor, ilk kez 1980'de bir İtalyanca sözlükte ve 1982'de İngilizcedeyer
+                        alıyor.Veneto
+                        bölgesinin yemeklerine adanmış 1983 tarihli bir yemek kitabında bahsediliyor .
+                    </font>
+                </p>
+                <img src="tiramisu.jpg" alt="r10" hspace="10" align="right" height="120" width="200">
+                <p>
+                    <font size="3">Restoran işletmecisi Ado Campeol'un (1928–2021) ölüm ilanlarında, tiramisunun 24
+                        Aralık 1969'da
+                        Treviso'daki restoranı Le Beccherie'de eşi Alba di Pillo (1929–2021) ve pasta şefi Roberto
+                        Linguanotto (1943–2024)
+                        tarafından icat edildiği bildirilmiştir. Yemek, 1972'de menüsüne eklendi.Temmuz 2024'teki
+                        ölümünden sonra, Le Beccherie
+                        restoranı Linguanotto'yu tiramisunun yaratıcısı olarak gösterdi.Tiramisunun afrodizyak etkileri
+                        olduğu ve Accademia Del Tiramisù'nin
+                        açıkladığı gibi, 19. yüzyılda Treviso genelevinin bir hanımı tarafından "eşlerine döndüklerinde
+                        evlilik görevleriyle ilgili
+                        yaşadıkları sorunları çözmek" amacıyla uydurulduğu iddia edilmektedir .
+                    </font>
+                </p>
+                <strong><u>Ünlü Mekanlar:</u> Two Sizes, Ristorante Ai Cocci, Da Cicero</strong>
+                <br><br><br>
+                <hr>
+                <h2 id="gelato">
+                    <font color="Maroon">GELATO</font>
+                </h2>
+                <p>
+                    <font size="3"><img src="gelato.jpg" alt="r10" hspace="10" align="right" height="150" width="180">
+                        Gelato, İtalyancada "donmuş" anlamına gelir ve ilk olarak 16. yüzyılda yaratılan İtalya'ya özgü
+                        bir dondurulmuş yiyecektir.
+                        Tarihçiler bunu ilk kimin icat ettiğinden emin değiller ancak hikayenin en popüler
+                        versiyonlarından biri, Floransalı
+                        Bernardo Buontalenti'nin modern dondurmanın bir biçimini yaratmasıdır. Catherina dei Medici'nin
+                        sarayını lezzetli dondurulmuş
+                        yiyeceğiyle etkilemiştir. Buradan İtalya'ya ve ardından Avrupa'nın geri kalanına yayılmıştır.
+                        Mağazalar açılmaya başlamış ve gelenek
+                        nesiller boyunca babadan oğula geçmiştir. Bu, bugün de tüm dünyada devam etmektedir.Dondurma
+                        Amerika Birleşik Devletleri'ne 1770'te geldi.
+                        Amerika'ya İtalyan asıllı Giovanni Biasiolo tarafından tanıtıldı. Ne yazık ki, el kranklı
+                        dondurucunun icat edildiği ve dondurmanın
+                        dondurmayı gölgelediği zaman da aynı zamana denk geliyordu. Aslında, tarihçiler bu İtalyan
+                        tatlısı hakkında 1900'lere kadar
+                        pek bir şey görmediler. Şimdi sadece İtalya ve Amerika Birleşik Devletleri'nde değil, tüm
+                        dünyada inanılmaz derecede popüler hale geldi!
+                        <p>
+                            <font size="3"></font>
+                        </p>
+                        <strong><u>Ünlü Mekanlar:</u> Gelateria Pasquino, Sweet Life Gelateria Pasticceria Artigianale,
+                            Gelateria La Romana</strong>
+                        <br><br><br>
+                        <button><a href="#top">Yukarı Çık</a></button>
+            </div>
+            <footer>
+                <h4>TÜM HAKLARI SAKLIDIR</h4>
+                <div class="sosyal" align="right">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="face.png" alt="Facebook" />
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="x.png" alt="X" />
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="insta.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="yt.png" alt="Youtube" />
+                    </a>
+                </div>
+            </footer>
+
+        </body>
+
+</html>

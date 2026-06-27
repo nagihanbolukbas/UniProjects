@@ -1,0 +1,12 @@
+# WordPress backup files
+*.wpress
+wp-content/ai1wm-backups/
+
+# Uploads
+wp-content/uploads/
+
+# Cache
+wp-content/cache/
+
+# Logs
+*.log

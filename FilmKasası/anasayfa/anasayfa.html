@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FilmKasası</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #26292e, #af90b6);
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 40px;
+      background-color: #26292e;
+    }
+
+    .logo {
+      max-height: 70px;
+      width: auto;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .categories a button {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid #fff;
+      padding: 12px 18px;
+      color: #fff;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .categories a button:hover {
+      background-color: #a81f48;
+      transform: translateY(-5px);
+    }
+
+    .search-bar {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: none;
+      width: 250px;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .film-grid {
+      display: flex;
+      gap: 15px;
+      overflow-x: hidden;
+      width: 100%;
+      scroll-behavior: smooth;
+    }
+
+    .film-card {
+      min-width: 220px;
+      background-color: #1e1e2e;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .film-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .film-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .film-card.watched {
+  border: 3px solid #28a745; 
+    }
+
+    .film-info {
+      padding: 15px;
+    }
+
+    .film-info h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .film-info p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .film-info .rating {
+      color: gold;
+      font-size: 0.95rem;
+    }
+
+    .film-info a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      background-color: #ff3c78;
+      color: white;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .film-info a:hover {
+      background-color: #ff6398;
+    }
+
+    .film-actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .watch-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background-color: #3e3e50;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .watch-btn:hover {
+      background-color: #ff3c78;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #12121c;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #ff3c78;
+      font-size: 2.2rem;
+    }
+
+    .controls {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .controls input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      .film-grid {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .film-grid {
+        gap: 5px;
+      }
+    }
+    
+    .header-right {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.login-btn {
+  background-color: #ff3c78;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #ff6398;
+}
+
+.dropdown {
+  margin-top: 10px;
+  display: none;
+  flex-direction: column;
+  background-color: #2c2f3f;
+  border-radius: 10px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.dropdown button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-bottom: 1px solid #444;
+  transition: background 0.2s;
+}
+
+.dropdown button:hover {
+  background-color: #444;
+}
+.film-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: 2px solid #000000;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 60%;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.arrow-btn:hover {
+  background-color: #ff3c78;
+  color: white;
+}
+
+.left-btn {
+  left: -90px;
+}
+
+.right-btn {
+  right: -90px;
+}
+
+.film-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: hidden; /* Kaydırma çubuğunu kaldırır */
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+.quick-tickets {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 200px;
+}
+
+.ticket {
+    width: 180px;
+    height: 180px;
+    border-radius: 60%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ticket:hover {
+    transform: scale(1.1);
+}
+
+.ticket-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="FilmKasası Logo" class="logo" />
+  </header>
+
+  <div class="header-right">
+    <button class="login-btn" id="loginBtn" onclick="toggleMenu()">👤 Giriş Yap</button>
+  
+    <div class="dropdown" id="userMenu" style="display: none;">
+      <!-- Giriş yapmadan önce görünen -->
+      <a href="giriş.html" id="loginLink"><button>👤 Giriş Yap</button></a>
+      <a href="giriş.html" id="registerLink" ><button>📝 Kayıt Ol</button></a>
+  
+      <!-- Giriş yaptıktan sonra görünen -->
+      <a href="favorilerim.html" id="favoritesLink" style="display: none;">
+        <button onclick="favoriteMovies()">👀 İzlemek İstediklerim</button>
+      </a>
+      <button id="logoutBtn" onclick="logout()" style="display: none;">🚪 Çıkış</button>
+    </div>
+  </div>
+  
+  <div class="categories">
+    <a href="../anasayfa/anasayfa.html"><button>🏠 Ana Sayfa</button></a>
+    <a href="../dramm/dram.html"><button onclick="filterByGenre('dram')">🎭 Dram</button></a>
+    <a href="../romantik/romantik.html"><button onclick="filterByGenre('romantik')">💘 Romantik</button></a>
+    <a href="../komedi/komedi.html"><button onclick="filterByGenre('komedi')">😂 Komedi</button></a>
+    <a href="../korku/korku.html"><button>👻 Korku</button></a>
+    <a href="../bilim kurgu/bilimkurgu.html"><button onclick="filterByGenre('bilim-kurgu')">🌌 Bilim Kurgu</button></a>
+    <a href="../aksiyon/aksiyon.html"><button onclick="filterByGenre('aksiyon')">💥 Aksiyon</button></a>
+    <a href="../hepsi/hepsi.html"><button onclick="filterByGenre('hepsi')">🎬 Hepsi</button></a>
+  </div>
+
+
+
+  <h1>🏠 Ana Sayfa</h1>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Film ara...">
+    <select id="sortSelect">
+      <option value="">Sırala</option>
+      <option value="asc">Yıla Göre Artan</option>
+      <option value="desc">Yıla Göre Azalan</option>
+    </select>
+  </div>
+
+  <section>
+    <h2>🔥 Popüler Filmler</h2>
+    <div class="film-section">
+      <button class="arrow-btn left-btn"  onclick="slideLeft()">⬅︎</button>
+    <div class="film-grid" id="filmGrid">
+      <div class="film-card" data-genre="korku">
+        <img src="annabella.jpg" alt="Film 1">
+        <div class="film-info">
+          <h3>Anna Bella</h3>
+          <p>Korku • 2014</p>
+          <div class="rating">⭐⭐⭐⭐☆</div>
+          <a href="../korku/annabella.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="film-card" data-genre="korku">
+        <img src="freddy.jpg" alt="Film 2">
+        <div class="film-info">
+          <h3>Freddy</h3>
+          <p>Korku • 2024</p>
+          <div class="rating">⭐⭐⭐☆☆</div>
+          <a href="../korku/freddy.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="film-card" data-genre="dram">
+        <img src="gözyaşı.jpg" alt="Film 3">
+        <div class="film-info">
+          <h3>Gözyaşı Ustası</h3>
+          <p>Dram • 2024</p>
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <a href="../dramm/gözyaşı.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="film-card" data-genre="aksiyon">
+        <img src="aşk ve gurur.jpeg" alt="Film 4">
+        <div class="film-info">
+          <h3>Aşk ve Gurur</h3>
+          <p>Romantik • 2005</p>
+          <div class="rating">⭐⭐⭐⭐☆</div>
+          <a href="../romantik/aşkvegurur.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="film-card" data-genre="bilim-kurgu">
+        <img src="deliha2.jpeg" alt="Film 5">
+        <div class="film-info">
+          <h3>Deliha 2</h3>
+          <p>Komedi • 2018</p>
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <a href="../komedi/deliha2.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+      <div class="film-card" data-genre="dram">
+        <img src="beşkörrandevu.jpeg" alt="Film 3">
+        <div class="film-info">
+          <h3>Beş Kör Randevu</h3>
+          <p>Komedi • 2014</p>
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <a href="../komedi/beşkörrandevu.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+      <div class="film-card" data-genre="dram">
+        <img src="yıldızlararası.jpeg" alt="Film 3">
+        <div class="film-info">
+          <h3>Yıldızlararası</h3>
+          <p>Bilim Kurgu • 2014</p>
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <a href="../bilim kurgu/yıldızlararası.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+      <div class="film-card" data-genre="dram">
+        <img src="captanamerika.jpg" alt="Film 3">
+        <div class="film-info">
+          <h3>Captan Amerika</h3>
+          <p> Aksiyon • 2011</p>
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <a href="../aksiyon/captanamerika.html">Filmi İncele</a>
+          <div class="film-actions">
+            <button class="watch-btn" onclick="requireLogin(markWatched, this)">✅ İzledim</button>
+            <button class="watch-btn" onclick="requireLogin(addToFavorites, this)">👀 İzlemek İstiyorum</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="arrow-btn right-btn"  onclick="slideRight()">➡︎</button>
+    </div>
+  </section>
+
+  <h2>🔥 Hızlı Bilet Al</h2>
+  <div class="quick-tickets">
+    <div class="ticket">
+      <a href="https://www.paribucineverse.com/">
+          <img src="paribu.jpeg" alt="Bilet Markası 1" class="ticket-img">
+      </a>
+  </div>  
+    <div class="ticket">
+     <a href="https://biletinial.com/tr-tr">
+        <img src="biletinial.png" alt="Bilet Markası 2" class="ticket-img">
+     </a>
+    </div>
+    <div class="ticket">
+      <a href="https://www.worldcinezone.com.tr/marmaraforum?gad_source=1&gad_campaignid=22050367422&gbraid=0AAAAA9jETmtNBeJ8lr1TwWCJX07Jr1yQn&gclid=EAIaIQobChMIqZnYs8KMjQMVB69oCR3RVznKEAAYASAAEgLcYvD_BwE">
+        <img src="world.png" alt="Bilet Markası 3" class="ticket-img">
+      </a>
+    </div>
+    <div class="ticket">
+      <a href="https://www.avsarsinema.com.tr/">
+        <img src="avşar.png" alt="Bilet Markası 4" class="ticket-img">
+      </a>
+    </div>
+</div>
+
+
+<!-- Büyütülmüş Resim için Modal -->
+<div id="modal" class="modal" onclick="closeModal()">
+    <img id="large-image" class="modal-img">
+</div>
+
+
+  <footer>
+    <p>&copy; 2025 FilmKasası. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script>
+    function requireLogin(actionFunction, button) {
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+  if (!isLoggedIn) {
+    alert("Lütfen önce giriş yapınız.");
+    window.location.href = "giriş.html";  // Giriş sayfasının yolu
+    return;
+  }
+  actionFunction(button);
+}
+
+    // Oturum kontrolü
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    const username = localStorage.getItem("username");
+  
+    // Menü açma/kapama
+    function toggleMenu() {
+      const dropdown = document.getElementById("userMenu");
+      dropdown.style.display = (dropdown.style.display === "flex") ? "none" : "flex";
+    }
+  
+    // Menü elemanlarını güncelle
+    function updateUI() {
+      document.getElementById("loginLink").style.display = isLoggedIn ? "none" : "block";
+      document.getElementById("registerLink").style.display = isLoggedIn ? "none" : "block";
+      document.getElementById("favoritesLink").style.display = isLoggedIn ? "block" : "none";
+      document.getElementById("logoutBtn").style.display = isLoggedIn ? "block" : "none";
+  
+      const loginBtn = document.getElementById("loginBtn");
+      loginBtn.textContent = isLoggedIn && username ? `👤 ${username}` : "👤 Giriş Yap";
+    }
+  
+    // Oturumdan çıkış
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("username");
+      location.reload();
+    }
+  
+    // Film türüne göre filtreleme
+    function filterByGenre(genre) {
+      const cards = document.querySelectorAll(".film-card");
+      cards.forEach(card => {
+        const filmGenre = card.getAttribute("data-genre");
+        card.style.display = (genre === "hepsi" || filmGenre === genre) ? "block" : "none";
+      });
+    }
+  
+    // Arama
+    document.addEventListener("DOMContentLoaded", () => {
+      updateUI();
+  
+      document.getElementById('searchInput').addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.film-card');
+  
+        cards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          card.style.display = title.includes(query) ? 'block' : 'none';
+        });
+      });
+  
+      document.getElementById('sortSelect').addEventListener('change', function () {
+        const sortOrder = this.value;
+        const cards = Array.from(document.querySelectorAll('.film-card'));
+  
+        cards.sort((a, b) => {
+          const yearA = parseInt(a.querySelector('p').textContent.split('•')[1].trim());
+          const yearB = parseInt(b.querySelector('p').textContent.split('•')[1].trim());
+          return sortOrder === 'asc' ? yearA - yearB : yearB - yearA;
+        });
+  
+        const filmGrid = document.getElementById('filmGrid');
+        filmGrid.innerHTML = '';
+        cards.forEach(card => filmGrid.appendChild(card));
+      });
+  
+      // Kaydırma başlat
+      setInterval(slideLeft, 5000);
+    });
+  
+    // Favorilere ekleme
+    function addToFavorites(button) {
+      const filmCard = button.closest('.film-card');
+      const filmTitle = filmCard.querySelector('h3').textContent;
+      const filmGenre = filmCard.querySelector('p').textContent.split('•')[0].trim();
+      const filmYear = filmCard.querySelector('p').textContent.split('•')[1].trim();
+  
+      const filmData = {
+        title: filmTitle,
+        genre: filmGenre,
+        year: filmYear,
+        image: filmCard.querySelector('img').src
+      };
+  
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      favorites.push(filmData);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+  
+      alert(`${filmTitle} İzlemek İstediklerinize eklendi!`);
+    }
+  
+    // İzledi olarak işaretle
+    function markWatched(button) {
+      const card = button.closest('.film-card');
+      card.classList.toggle('watched');
+    }
+  
+    // Kaydırma
+    function slideLeft() {
+      const filmGrid = document.getElementById('filmGrid');
+      filmGrid.scrollLeft -= 100;
+      if (filmGrid.scrollLeft <= 0) {
+        filmGrid.scrollLeft = filmGrid.scrollWidth - filmGrid.clientWidth;
+      }
+    }
+  
+    function slideRight() {
+      const filmGrid = document.getElementById('filmGrid');
+      filmGrid.scrollLeft += 100;
+      if (filmGrid.scrollLeft >= filmGrid.scrollWidth - filmGrid.clientWidth) {
+        filmGrid.scrollLeft = 0;
+      }
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,238 @@
+<html>
+
+<head>
+    <title>Hakkımızda</title>
+</head>
+
+<body bgcolor="	#E3F2FD">
+    <style>
+        img.logo {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+
+        }
+
+        a {
+            text-decoration: none;
+            /* Alt çizgiyi kaldırır */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .MenuBarHorizontal {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .MenuBarHorizontal>a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #008080;
+            /* Menünün arka plan rengi */
+            border-radius: 5px;
+        }
+
+        .MenuBarHorizontal>a:hover {
+            background-color: #006666;
+            /* Hover efekti */
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #c2e2dd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 200px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .dropdown-content ul li {
+            position: relative;
+            padding: 8px 10px;
+        }
+
+        .dropdown-content ul li:hover {
+            background-color: #ddd;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            /* Yan tarafa açılacak */
+            top: 0;
+            background-color: #c2e2dd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            z-index: 1;
+        }
+
+        .dropdown-content ul li:hover .sub-menu {
+            display: block;
+        }
+
+        #clock-container {
+            margin: 20px;
+            font-size: 20px;
+        }
+
+        .clock {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #c2e2dd;
+            ;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sosyal a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .sosyal img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .sosyal img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+
+    <body id="ust" background-color="#D3D3D3">
+           <!-- Menü -->
+           <table border="0" bgcolor="#c2e2dd" width="100%" height="70">
+            <tr align="center">
+                <td width="120" height="100" rowspan="3" align="center">
+                    <a href="../Anasayfa/anasayfa.html"><img src="web.jpg" class="logo"></a>
+                </td>
+                <td colspan="2">
+                    <div class="dropdown">
+                        <a href="#" class="MenuBarItemSubmenu"><b>ÜLKELER</a></b>
+                        <div class="dropdown-content">
+                            <ul>
+                                <li>
+                                    <b>Fransa</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../fransa_yerler/fransayerler.html"><b>Yerler</a></li></b>
+                                        <li><a href="../fransa_yemekler/fransayemekler.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>İtalya</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../italya_yerler/italya_yerler.html"><b>Yerler</a></li></b>
+                                        <li><a href="../italya_yemek/italya_yemek.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <b>Japonya</b>
+                                    <ul class="sub-menu">
+                                        <li><a href="../japonya_yerler/japonya_yerler.html.html"><b>Yerler</a></li></b>
+                                        <li><a href="../japonya_yemek/japonya_yemek.html.html"><b>Yemekler</a></li></b>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <a href="../hakkimizda/hakkimizda.html" class="MenuBarItemSubmenu"><b>HAKKIMIZDA</a></b>
+                </td>
+                <td colspan="2">
+                    <a href="../iletisim/iletişim.html" class="MenuBarItemSubmenu"><b>İLETİŞİM</a></b>
+                </td>
+            </tr>
+        </table>
+
+        <body bgcolor="#edfffa">
+            <font color="black">
+                <h1>Neler Sunuyoruz?</h1>
+                <h3>Turistik Bilgiler ve Rehberler:</h3>
+                <p>Ülkelerin en büyük destinasyonları,şehirleri,doğal güzellikleri,tarihi yapıları
+                    ve gezilcek yerler hakkında detaylı bilgi verir.
+                </p>
+                <h3> Video ve Görsel İçerikler:</h3>
+                <p>
+                    Ülkelerin doğal güzelliklerini, tarihi yapıları ve kültürel mirasını görsel olarak tanıtan video ve
+                    fotoğraf galerileri
+                    sunuyoruz. Bu içerikler, kullanıcıların ülkeleri görsel olarak keşfetmelerine olanak tanır.</p>
+                <h3>Yemek ve Mutfak:</h3>
+                <p>Ülkelerin mutfak kültürlerini tanıtan ,yerel yemekler ve tarifler</p>
+                <h3>Erişilebilirlik:</h3>
+                <p>Kullanıcı dostu ve erişilebilir bir platform sunmak.</p>
+                <h3>Kültürel Çeşitlilik:</h3>
+                <p> Farklı kültürleri kutlamak ve dünyadaki kültürel çeşitliliği yüceltmek.</p>
+                <h1>Misyonumuz</h1>
+                <p>Site misyonumuz,kültürel turistik ve tarihsel değerlerini ziyaretçilerimize en doğru şekilde
+                    sunmaktadır.Ülkelerin farklı coğrafyalarındaki doğal zenginlikler
+                    ,geleneksel yaşam biçimleri, mutfak kültürü ve etkinlikler hakkında kapsamlı içerikler sunarak,hem
+                    yurtiçindeki hem de yurtdışındaki ziyaretçilerimizin
+                    daha fazla bilgi edinmesine yardımcı olmaya çalışıyoruz.
+                </p>
+                <h1>Vizyonumuz</h1>
+                <p>Dünya üzerindeki tüm ülkelerin kültürel mirasını, doğal güzelliklerini, tarihi değerlerini ve yaşam
+                    tarzlarını kapsamlı ve doğru bir şekilde tanıtarak,
+                    küresel anlayışı, kültürler arası etkileşimi ve uluslararası turizmi teşvik eden lider bir dijital
+                    platform olmak.
+                    Ziyaretçilerimize her ülkenin benzersiz yönlerini keşfetme fırsatı sunarak, kültürler arası diyaloğu
+                    güçlendiren,
+                    eğitici ve ilham verici bir bilgi kaynağı yaratmayı hedefliyoruz.
+                    Teknoloji ve yaratıcı içerik olanaklarını en iyi şekilde kullanarak,
+                    dünya üzerindeki her ülkenin sesini dijital dünyada duyurmak, kültürel farklılıkların zenginliğini
+                    kutlamak ve küresel farkındalığı artırmak temel ilkemizdir.</p>
+            </font>
+            <footer>
+                <h4>TÜM HAKLARI SAKLIDIR</h4>
+                <div class="sosyal" align="right">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="face.png" alt="Facebook" />
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="x.png" alt="X" />
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="insta.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="yt.png" alt="Youtube" />
+                    </a>
+                </div>
+            </footer>
+        </body>
+
+</html>
